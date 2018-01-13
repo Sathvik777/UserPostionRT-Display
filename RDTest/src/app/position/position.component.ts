@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Position } from '../position/position';
+import { ApiManagerService } from '../api-manager.service';
 
 @Component({
   selector: 'app-position',
@@ -8,15 +9,18 @@ import { Position } from '../position/position';
 })
 export class PositionComponent implements OnInit {
 
-  position : Position = {
-    id: "12000000000256d9",
-    lattitude: 21,
-    longitude: 22
-  };
+  position : Position;
 
-  constructor() { }
+  constructor(private apiManagerService: ApiManagerService) {
+    
+   }
 
   ngOnInit() {
+    this.getPosition();
+  }
+
+  getPosition(): void {
+    this.position = this.apiManagerService.getPosition();
   }
 
 }
