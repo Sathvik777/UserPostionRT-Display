@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { PositionComponent } from './position/position.component';
+import { BeaconFramesComponent } from './beacon-frames/beacon-frames.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PositionComponent,
+    BeaconFramesComponent
   ],
   imports: [
     BrowserModule
