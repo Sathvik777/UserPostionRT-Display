@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PositionComponent } from './position/position.component';
 import { BeaconFramesComponent } from './beacon-frames/beacon-frames.component';
+import { ApiManagerService } from './api-manager.service';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { BeaconFramesComponent } from './beacon-frames/beacon-frames.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [ApiManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
