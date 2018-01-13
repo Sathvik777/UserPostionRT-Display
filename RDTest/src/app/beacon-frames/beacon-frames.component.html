@@ -1,6 +1,6 @@
 <h2>My BeaconFrames</h2>
-<ul class="beaconFrames">
-  <li *ngFor="let beaconFrame of beaconFrames">
-    <span class="badge">{{beaconFrame.box}}</span> {{beaconFrame.rssi}}
+<ul class="beacons">
+  <li *ngFor="let beacon of beacons">
+    <span class="badge">{{beacon.box}}</span> {{beacon.rssi}}
   </li>
 </ul>
