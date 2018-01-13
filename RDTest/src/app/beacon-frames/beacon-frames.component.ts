@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeaconFrame } from '../beacon-frames/beacon-frames';
+import { BeaconFrames } from '../beacon-frames/mock-beacon-frames'
 
 @Component({
   selector: 'app-beacon-frames',
@@ -8,10 +9,7 @@ import { BeaconFrame } from '../beacon-frames/beacon-frames';
 })
 export class BeaconFramesComponent implements OnInit {
 
-  beaconFrames : BeaconFrame = {
-    box : "",
-    rssi :  1
-  };
+  beaconFrames = BeaconFrames;
 
   constructor() { }
 

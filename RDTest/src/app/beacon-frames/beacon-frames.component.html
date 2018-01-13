@@ -1,3 +1,6 @@
-<p>
-  beacon-frames works!
-</p>
+<h2>My BeaconFrames</h2>
+<ul class="beaconFrames">
+  <li *ngFor="let beaconFrame of beaconFrames">
+    <span class="badge">{{beaconFrame.box}}</span> {{beaconFrame.rssi}}
+  </li>
+</ul>
