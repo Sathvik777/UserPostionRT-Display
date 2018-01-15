@@ -7,6 +7,8 @@ import { PositionComponent } from './position/position.component';
 import { BeaconFramesComponent } from './beacon-frames/beacon-frames.component';
 import { ApiManagerService } from './api-manager.service';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthunticationManagerService } from './authuntication-manager.service';
+import { BeaconPostionService } from './beacon-postion.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [ApiManagerService],
+  providers: [ApiManagerService, AuthunticationManagerService, BeaconPostionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
