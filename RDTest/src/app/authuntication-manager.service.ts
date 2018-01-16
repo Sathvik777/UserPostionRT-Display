@@ -11,6 +11,7 @@ export class AuthunticationManagerService {
 
   getAuthenticateToken(): any {
     return this.postAuthenticateRequest().then(function(authenticateToken){
+      console.log(authenticateToken);
       return authenticateToken;
     }).catch(function(err){
       console.log(err);

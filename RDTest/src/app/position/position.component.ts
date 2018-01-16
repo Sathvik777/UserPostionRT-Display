@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Position } from '../position/position';
 import { ApiManagerService } from '../api-manager.service';
+import { BeaconPostionService } from '../beacon-postion.service';
 
 @Component({
   selector: 'app-position',
@@ -11,16 +12,13 @@ export class PositionComponent implements OnInit {
 
   position : Position;
 
-  constructor(private apiManagerService: ApiManagerService) {
+  constructor(private apiManagerService: ApiManagerService, private beaconPostionService: BeaconPostionService) {
     
    }
 
   ngOnInit() {
-    this.getPosition();
+    this.apiManagerService.positionOfBeaconCast.subscribe(newPosition => this.position = newPosition);
   }
 
-  getPosition(): void {
-    this.position = this.apiManagerService.getPosition();
-  }
 
 }

@@ -11,62 +11,42 @@ import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { AuthunticationManagerService } from './authuntication-manager.service';
+import { BeaconPostionService } from './beacon-postion.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Injectable()
-export class ApiManagerService implements OnInit{
+export class ApiManagerService implements OnInit {
 
-   baseUrl = "https://development.hd-wireless.com:9001";
-   beaconId = "12000000000256d9";
-   authunticationToken = "";
 
-  getBeaconFrames() : BeaconFrame[] {
+  authunticationToken = "";
+
+  private positionOfBeacon = new BehaviorSubject<Position>(PositionMock);
+  positionOfBeaconCast = this.positionOfBeacon.asObservable();
+  getBeaconFrames(): BeaconFrame[] {
     return BeaconFrames;
   }
 
 
-  getPosition() : Position {
-    this.makeGetPostionRequest();
+  getPosition(): Position {
     
+
+
     return PositionMock;
   }
 
-  makeGetPostionRequest() : void {
-    this.http.get(this.baseUrl+"/beacons/12000000000256d9/pos",{
-    headers: new HttpHeaders().set('Content-Type', 'application/json')
-                              .set('Api-Version', '3')
-                              .set('X-Authenticate-Token',this.authunticationToken)
-                              }) 
-   .subscribe(
-    data => {
-      console.log(data);
-    }
 
-   );
+  updatePostion(newPosition) {
+    this.positionOfBeacon.next(newPosition);
   }
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
- 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
- 
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
- 
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
+
+
+  constructor(private http: HttpClient) {
   }
- 
-  constructor(private http: HttpClient,
-     authunticationManagerService: AuthunticationManagerService) {
-    this.authunticationToken = authunticationManagerService.getAuthenticateToken();
-      console.log(this.authunticationToken);
-   }
 
 
-   ngOnInit() : void {
-     console.log("ngOnInit  ");
-   }
+  ngOnInit(): void {
+    console.log("ngOnInit  ");
+  }
 
 }
