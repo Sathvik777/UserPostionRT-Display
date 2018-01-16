@@ -56,10 +56,7 @@ export class BeaconPostionService {
 
     return promise;
   }
-  getPosition(): Position {
-
-    return PositionMock;
-  }
+  
   updatePostion(newPosition) {
     this.positionOfBeacon.next(newPosition);
   }

@@ -38,7 +38,6 @@ export class BeaconFramesService {
         .toPromise()
         .then(
         data => {
-          console.log(data);
           this.updateBeconFramse(data);
           resolve(data);
         },
@@ -51,7 +50,19 @@ export class BeaconFramesService {
     return;
   }
   updateBeconFramse(data) {
-    this.beaconFramesNew.next(data);
+    let framesUpdated = [];
+    let filteredBecons = data.filter(
+      currentFrame => {
+         if(framesUpdated.indexOf(currentFrame['Box']) < 0 ){
+           framesUpdated.push(currentFrame['Box']);
+           return true;
+         } else{
+          return false;
+         }
+      }
+
+    );
+    this.beaconFramesNew.next(filteredBecons);
   }
 
 }

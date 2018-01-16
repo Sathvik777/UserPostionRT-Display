@@ -17,7 +17,7 @@ export class BeaconFramesComponent implements OnInit {
   constructor(private beaconFramesService:BeaconFramesService) { }
 
   ngOnInit() {
-    this.beaconFramesService.beaconFramesNewCast.subscribe(newBeacons => this.beacons = newBeacons);
+    this.beaconFramesService.beaconFramesNewCast.subscribe(newBeacons => {this.beacons = newBeacons});
   }
 
 }
