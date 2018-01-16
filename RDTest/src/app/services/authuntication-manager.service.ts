@@ -14,6 +14,8 @@ export class AuthunticationManagerService {
     this.postAuthenticateRequest();
    }
 
+
+  // Not using this function.. Left for future refrence 
   getAuthenticateToken(): any {
     return this.postAuthenticateRequest().then(function (authenticateToken) {
       console.log(authenticateToken);
@@ -24,6 +26,7 @@ export class AuthunticationManagerService {
 
   }
 
+  //Using subjects to trigger events which could work only with AuthenticateToken
   sendMessage(message: string) {
     this.subjectAuthToken.next(message);
   }

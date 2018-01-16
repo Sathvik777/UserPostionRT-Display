@@ -24,7 +24,7 @@ export class BeaconFramesService {
     });
 
   }
-
+  //Triggred when AuthenticateToken is recived
   getBeaconFramesRequest(authunticationToken) : void{
     let promise = new Promise((resolve, reject) => {
       this.http
@@ -47,6 +47,7 @@ export class BeaconFramesService {
 
     return;
   }
+  // Filters, Sorts and updates Box
   updateBeconFramse(data) {
     let framesUpdated = [];
     let filteredBecons = data.filter(
@@ -60,7 +61,7 @@ export class BeaconFramesService {
       }
 
     );
-    this.beaconFramesNew.next(filteredBecons);
+    this.beaconFramesNew.next(filteredBecons.sort((frame1, frame2) => frame1['Rssi'] - frame2['Rssi']  ));
   }
 
 }
