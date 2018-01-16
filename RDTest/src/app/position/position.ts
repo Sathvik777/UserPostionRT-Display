@@ -1,5 +1,5 @@
 export class Position {
     Beacon: string;
-    Lattitude: number;
+    Latitude: number;
     Longitude: number;
   }
