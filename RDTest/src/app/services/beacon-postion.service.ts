@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Credentials } from './user-credentials-data';
 import { Promise } from 'es6-promise';
 import { AuthunticationManagerService } from './authuntication-manager.service';
-import { Position } from './position/position';
+import { Position } from '../position/position';
 import { PositionMock } from './mock-position';
 import { Subscription } from 'rxjs/Subscription';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';

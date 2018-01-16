@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthunticationManagerService } from './authuntication-manager.service';
 import { Subscription } from 'rxjs/Subscription';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { BeaconFrame } from './beacon-frames/beacon-frames';
+import { BeaconFrame } from '../beacon-frames/beacon-frames';
 import { BeaconFrames } from './mock-beacon-frames';
 
 @Injectable()

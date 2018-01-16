@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Position } from '../position/position';
 //import { ApiManagerService } from '../api-manager.service';
-import { BeaconPostionService } from '../beacon-postion.service';
+import { BeaconPostionService } from '../services/beacon-postion.service';
 
 @Component({
   selector: 'app-position',

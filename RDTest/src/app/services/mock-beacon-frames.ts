@@ -1,4 +1,4 @@
-import { BeaconFrame } from './beacon-frames/beacon-frames';
+import { BeaconFrame } from '../beacon-frames/beacon-frames';
 
 export const BeaconFrames : BeaconFrame[] = [
     {

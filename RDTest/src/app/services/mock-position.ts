@@ -1,4 +1,4 @@
-import { Position } from './position/position';
+import { Position } from '../position/position';
 
 
 export const PositionMock : Position = {

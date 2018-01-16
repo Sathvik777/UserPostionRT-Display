@@ -5,11 +5,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PositionComponent } from './position/position.component';
 import { BeaconFramesComponent } from './beacon-frames/beacon-frames.component';
-import { ApiManagerService } from './api-manager.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthunticationManagerService } from './authuntication-manager.service';
-import { BeaconPostionService } from './beacon-postion.service';
-import { BeaconFramesService } from './beacon-frames.service';
+import { AuthunticationManagerService } from './services/authuntication-manager.service';
+import { BeaconPostionService } from './services/beacon-postion.service';
+import { BeaconFramesService } from './services/beacon-frames.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import { BeaconFramesService } from './beacon-frames.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [ApiManagerService, AuthunticationManagerService, BeaconPostionService, BeaconFramesService],
+  providers: [ AuthunticationManagerService, BeaconPostionService, BeaconFramesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

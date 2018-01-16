@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeaconFrame } from '../beacon-frames/beacon-frames';
-import { BeaconFrames } from '../mock-beacon-frames';
-import { BeaconFramesService } from '../beacon-frames.service';
+import { BeaconFrames } from '../services/mock-beacon-frames';
+import { BeaconFramesService } from '../services/beacon-frames.service';
 
 
 
