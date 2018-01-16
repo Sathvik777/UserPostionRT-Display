@@ -19,7 +19,6 @@ export class BeaconPostionService {
 
 
   constructor(private http: HttpClient, private authunticationManagerService: AuthunticationManagerService) {
-      console.log(" constructor BeaconPostionService "); 
       this.subscription = this.authunticationManagerService.
       getMessage().subscribe(message => { 
         this.makeGetPostionRequest(message); 
@@ -29,8 +28,7 @@ export class BeaconPostionService {
  
 
   makeGetPostionRequest(authunticationToken) {
-    console.log(authunticationToken + "makeGetPostionRequest ");
-    let promise = new Promise((resolve, reject) => {
+     let promise = new Promise((resolve, reject) => {
       this.http
         .get(this.baseUrl + "/beacons/12000000000256d9/pos", {
           headers: new HttpHeaders().set('Content-Type', 'application/json')
@@ -40,7 +38,6 @@ export class BeaconPostionService {
         .toPromise()
         .then(
         data => {
-          console.log(data);
           let newPosition = new Position();
           newPosition.Beacon = data['Beacon'];
           newPosition.Latitude = data['Latitude'];
@@ -56,7 +53,7 @@ export class BeaconPostionService {
 
     return promise;
   }
-  
+
   updatePostion(newPosition) {
     this.positionOfBeacon.next(newPosition);
   }

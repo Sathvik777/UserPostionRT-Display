@@ -18,7 +18,6 @@ export class BeaconFramesService {
 
 
   constructor(private http: HttpClient, private authunticationManagerService: AuthunticationManagerService) { 
-    console.log(" constructor BeaconPostionService "); 
     this.subscription = this.authunticationManagerService.
     getMessage().subscribe(message => { 
       this.getBeaconFramesRequest(message); 
@@ -27,7 +26,6 @@ export class BeaconFramesService {
   }
 
   getBeaconFramesRequest(authunticationToken) : void{
-    console.log(authunticationToken + "makeGetPostionRequest ");
     let promise = new Promise((resolve, reject) => {
       this.http
         .get(this.baseUrl + "/beacons/12000000000256d9/frames", {

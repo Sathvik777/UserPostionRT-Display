@@ -25,12 +25,9 @@ export class AuthunticationManagerService {
   }
 
   sendMessage(message: string) {
-    console.log("sendMessage  " + message);
-
     this.subjectAuthToken.next(message);
   }
   getMessage(): Observable<String> {
-    console.log("getMessage ");
     return this.subjectAuthToken.asObservable();
   }
 
@@ -46,9 +43,7 @@ export class AuthunticationManagerService {
         .toPromise()
         .then(
         data => {
-          console.log(data['AuthenticateToken']);
           this.sendMessage(data['AuthenticateToken']);
-          
           resolve(data['AuthenticateToken']);
         },
         msg => {
